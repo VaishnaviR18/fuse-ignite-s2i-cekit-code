@@ -1,0 +1,34 @@
+schema_version: 1
+
+name: "fuse7/fuse-online-builder-rhel8"
+description: "S2I base image for Fuse Online runtime integration pods."
+version: "1.9"
+from: "registry-proxy.engineering.redhat.com/rh-osbs/fuse7-fuse-java-openshift-rhel8:1.9"
+
+labels:
+- name: "com.redhat.component"
+  value: "fuse-ignite-s2i-rhel-8-container"
+- name: "maintainer"
+  value: "Otavio Piske <opiske@redhat.com>"   
+- name: "io.k8s.description"
+  value: "S2I base image for Fuse Online runtime integration pods."
+- name: "io.k8s.display-name"
+  value: "Red Hat Fuse Online - S2I"
+- name: "io.openshift.tags"
+  value: "fuse"
+
+envs:
+- name: SYNDESIS_VERSION
+  value: 1.12.0.fuse-790010-redhat-00001
+
+modules:
+    repositories:
+      - name: modules
+        path: modules
+    install:
+      - name: s2i-syndesis
+      - name: license
+
+run:
+  user: 0
+  user: 185

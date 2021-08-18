@@ -1,0 +1,15 @@
+schema_version: 1
+
+name: s2i-syndesis
+version: 1.0
+description: "copy s2i-syndesis"
+
+artifacts:
+- name: "s2i-syndesis"
+  sha512: "74782272b7d21de31ca41f28fdaeca32451c6a6ac45b4c4e7136063f62adbf8e1879c90b2da24bbcd1585bc67925691caf922d83fa8ec250fffda80661b67775"
+  url: "http://indy.psi.redhat.com/api/content/maven/group/redhat-builds/io/syndesis/s2i/s2i/1.12.0.fuse-790010-redhat-00001/s2i-1.12.0.fuse-790010-redhat-00001-m2.zip"
+  target: "m2.zip"
+  dest: "/tmp/artifacts"
+
+execute:
+- script: install.sh
